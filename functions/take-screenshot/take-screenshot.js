@@ -3,7 +3,7 @@ const puppeteer = require("puppeteer-core");
 exports.handler = async (event, context) => {
 
     const pageToScreenshot = JSON.parse(event.body).pageToScreenshot;
-
+    const urlx = event.queryStringParameters
     if (!pageToScreenshot) return {
         statusCode: 400,
         body: JSON.stringify({ message: 'Page URL not defined' })
@@ -38,6 +38,7 @@ exports.handler = async (event, context) => {
     return {
         statusCode: 200,
         body: JSON.stringify({ 
+            url: urlx
             message: `Complete screenshot of ${pageToScreenshot}`, 
             buffer: screenshot 
         })
