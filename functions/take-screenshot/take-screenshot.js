@@ -9,12 +9,14 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ message: 'Page URL not defined' })
     }
 
-    const browser = await chromium.puppeteer.launch({
+    const browser = await puppeteer.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath,
+        executablePath: process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath,
         headless: chromium.headless,
+        ignoreHTTPSErrors: true,
     });
+
     
     const page = await browser.newPage();
 
