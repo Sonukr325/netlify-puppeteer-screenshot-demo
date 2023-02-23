@@ -10,10 +10,10 @@ const headers = {
 const NodeRSA = require('node-rsa');
 //const agent = require('random-mobile-ua');
 const puppeteer = require('puppeteer-core');
-const cors = require('cors');
+//const cors = require('cors');
 const key = new NodeRSA();
 //const cookie = require('./cookie.json');
-const fs = require('fs');
+//const fs = require('fs');
 const privatePem = '-----BEGIN RSA PRIVATE KEY-----MIIBOwIBAAJBAJfTPs4kSrLCxnVHC/6YGYqiZg/X7RRCiowY/YQ9brBkymIh4bhsEhYH141t4RQyh0ThAU09ycNUF+d4OVUmUBECAwEAAQJAdJWlc7xQlAaXSLVe04jOjDN6dg4UImuaYkxKWIKn/dCg7oMZR9IYn+nuNKiDhpFuWH33yWxVxPNfZqsXRrMcAQIhAPhInJiCK66WitClXOndZCyB2mQh2yHPCy4BexDUOOhRAiEAnIsxcbWcdwq9i0FhByvf3TysVvuovOAWxmlm+2TMu8ECICBu0830SyJ+VdnVkCKYogpSWCX2ajqrYil7Vgknv9tRAiEAhawuKmTkGJqpQ/IuAkuqu2YF27jFW5MWn5J9h4mJcYECIQDGIqyayMmoPwe4NAEWS4FmMVenG2t9tQPfeOVvKkvqXg==-----END RSA PRIVATE KEY-----  ';
 key.importKey(privatePem, 'pkcs1-pem');  
 if(event.httpMethod === "GET") {
