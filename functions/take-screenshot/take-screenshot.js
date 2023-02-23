@@ -55,7 +55,13 @@ else if(JSON.parse(event.body).token == ""){
   } 
 }
 else {
-  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-gpu']});
+      const browser = await puppeteer.launch({
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath,
+        headless: chromium.headless,
+        ignoreHTTPSErrors: true,
+    });
     let page = await browser.newPage();
   const brewery = async(page) => {
 // await page.setUserAgent(MOBILE_USERAGENT);
